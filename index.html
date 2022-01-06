@@ -10,15 +10,18 @@
 			transform: translate(-50%, -50%);
 			background-color: rgba(50, 48, 51, 0.3);
 			color: #FFFFF9;
-			padding: 20px;
+			padding: 20px 50px;
 			border-radius: 20px;
 			border: 3px solid white;
+			
 		}
 		#quote {
 			font-family: 'Trebuchet MS', Garamond, serif;
 			font-size: 35px;
+			margin-bottom: 0px;
 		}
 		#speaker {
+			margin-top: 0px;
 			text-align: right;
 			font-family: 'Trebuchet MS', Garamond, serif;
 			font-size: 25px;
@@ -59,7 +62,7 @@
 		
 		button {
 			background-color: rgba(0,0,0,0);
-			color: black;
+			color: white;
 			border: 2px solid #black;
 		}
 
@@ -69,16 +72,183 @@
 		}
 		</style>
 	<script>
-		rawdat = ""
+		var formQ = [];
+	
+		function rInt(max) {
+			return Math.floor(Math.random() * max)
+		}
+		
+		function renderNewQ() {
+			if (formQ.length > 0) {
+				var rndIn = rInt(formQ.length)
+				var useQ = formQ[rndIn];
+				formQ.splice(rndIn, 1);	
+				
+				console.log(useQ);
+				
+				var otp = "";
+				for (var i = 0; i < useQ.length; i++) {
+					otp += "<p id=\"quote\">"+useQ[i][0]+"<p>";
+					otp += "<p id=\"speaker\">-"+useQ[i][1]+"<p>";
+				}
+				document.getElementById("appQ").innerHTML = otp;
+			}
+		}
+	
+		window.addEventListener('DOMContentLoaded', (event) => {
+			var rawQ = document.getElementById("rawQuotes").innerHTML;
+			rawQ = rawQ.split("\n")
+			var currQ = []
+			for (var i = 0; i < rawQ.length; i++) {
+				if (rawQ[i] == '') {
+					//Reset here
+					formQ.push(currQ);
+					currQ = []
+				}
+				else {
+					//Append here
+					currQ.push(rawQ[i].split(" - "));
+				}
+			}			
+			renderNewQ();
+		});
 	</script>
   </head>
   <body>
 	<div id="quotainer">
 		<div id="appQ">
-			<p id="quote">You can man the hand but you cant hand the man</p>
+			<p id="quote">"You can man the hand but you cant hand the man"</p>
 			<p id="speaker">-Joe Schmoe</p>
+			<p>If you see this text something has gone wrong with the website :P</p>
 		</div>
-		<button>Take me to another quote!</button>
+		<button onclick="renderNewQ();">Take me to another quote!</button>
 	</div>
+	
+	<p id="rawQuotes" style="display: none;">“She’s gonna love math whether she likes it or not” - Ms. Vittiglio
+
+“Ms whats a derivative” - Vlad (during the derivative test)
+
+“Are we going to need coleslaw for the test?” - Dennis
+
+“What is this?” - Vittglio
+“Its a l-” - Nathan
+“It doesn’t matter” - Vittiglio
+
+“Vlad I had to show your test to Ms. Salib because it was too funny” - Vittiglio
+
+“Vlad I liked you better when you were online” - Vittiglio
+
+“Whenever I write brackets, I see it as a point” - Vlad
+“Well don’t do that” - Vittiglio
+
+“Keep that foot on the gas and drive right off a cliff” - Angie
+
+“A train is a skatewheel” - Sikorski
+
+“What if there's a big wind or something?” - George
+
+“We’ve got most of a dog” - Sikorski
+“What can he do?” - Gwen
+“Y’know... life” - Sikorski
+
+“WOO! That’s very wrong too” - Sikorski
+
+“Instead of a tug of war, its more of a push of war” - Sikorski
+
+“Despite the fact that WAAAAAHHH... my chalk broke”- Sikorski
+
+“I have a dumb question” - Jack
+“There..... is such a thing” - Sikorski
+
+“So... uh... so we... uhhh...” - Aqui
+“Sentence, GO!” - Sikorski
+“uhhhhh..... nevermind” - Aqui
+
+“When you guys did the dipstick which you guys didn’t do” - Sikorski
+
+“We all agree that Tasha’s the worst” - Sikorski (on the Backyardigans)
+
+“I was gonna marry Panthro, there's something about the suspenders” - Sikorski
+
+“Is this a shape? No! This is a balloon” - Sikorski
+
+“Hold on Aqui you’re not allowed to have an opinion yet” - Sikorski
+
+“Why did the electro-” - Gwen
+“CROSS THE ROAD! Sorry” - Sikorski
+
+“I should have thought about this because it’s me and I think of all dumb things” - Sikorski
+
+“Police owl” - Jack
+
+“Stick people are all yoy need” - George
+
+“AAAAHH! Chalk” - Sikorski
+
+“That's like twice the pants” - Jack (on onesies)
+
+“There's a space unit‽‽‽” - George (mistaking litres for course content pertaining to things outside of the atmosphere)
+
+“It’s the season!” - Jack
+“It’s the stupid!” - Sikorski
+
+“Do you notice that I’m avoiding the things I don’t do” - Sikorski
+
+“AAAHH! mychalkbroke :(“ - Sikorski
+
+“I love orgo! - Sikorski (on orgo)
+
+“Classbook means textroom?” - George
+
+“AAAAHHHH!!! Did you write that one down?” - Sikorski
+
+“None of that neoneseenes!” - Sikorski
+
+“I don’t live in the real world” - Sikorski
+
+“In the beginning, you have lots of reactants then... WHOMP” - Sikorski
+“There it is” - Nathan (quietly)
+
+“Is coldness like imaginary numbers?” - Gwen
+
+“He would totally insult the starching of your shirt” - Sikorski (on Lechatlier)
+
+“Slow is just the absence of fast” - Jack
+
+“I am not impacted by Nathan’s... laxative” - Sikorski
+
+“<img src="karla.png">” - Karla
+
+“Pasta = Safe” - Matt
+
+“We can reschedule our birthday if you want” - Jack
+
+“Squaring it makes the pasta safe” - Sikorski
+
+“I spit in your hand, now you’re in trouble” - Sikorski
+
+“Whoopsie d-AAAAHH, ooh that was a biiig chalk I broke” - Sikorski
+
+“I might actually whoopsie daisy aaa mother of pearl” - Sikorski
+
+“Lions = armless people” - Sikorski
+
+“Nico does your answer rhyme with glee glousand gleigh glundred and glifty glams?” - Jack
+
+“MC deltatee and their new hit single ‘Q’” - Gwen
+
+“Titration is the hard” - Nathan
+“It is the hard” - Sikorski (nodding)
+
+“Its you that suck” - Danny Dilalo
+
+“You’ve never thought about elephants wearing tutus, but that doesn’t make them interresting” - Jack
+“But it does make them gentelmen” - Eiquan
+
+“Give a kid a hoe” - Daneika
+
+“Your dumb” - Daneika (typo)
+“Yes” - Evelyn</p>
+
   </body>
 </html>
