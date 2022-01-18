@@ -86,9 +86,7 @@
                 var rndIn = rInt(formQ.length)
                 var useQ = formQ[rndIn];
                 formQ.splice(rndIn, 1);    
-                
-                console.log(useQ);
-                
+                                
                 var otp = "";
                 for (var i = 0; i < useQ.length; i++) {
                     otp += "<p id=\"quote\">"+useQ[i][0]+"<p>";
@@ -111,7 +109,7 @@
                     document.getElementById("ncBut").innerHTML = "Please stop";
                 }
                 if (uselessClicks >= 48) {
-                    document.getElementById("ncBut").innerHTML = "How much energy you've wasted " + uselessClicks;
+                    document.getElementById("ncBut").innerHTML = "How many clicks you've wasted: " + uselessClicks;
                 }
             }
             
@@ -270,7 +268,7 @@
 
 “Making a blanket because you are bored is a power move” - Jack
 
-“latent heat! we are latenting heatening “ - Sikorski
+“latent heat! we are latenting heatening“ - Sikorski
 
 “tptplly” - Jack
 
