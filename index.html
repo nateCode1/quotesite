@@ -78,14 +78,14 @@
         var uselessClicks = 0;
     
         function rInt(max) {
-            return Math.floor(Math.random() * max) - 10;
+            return Math.floor(Math.random() * max);
         }
         
         function renderNewQ() {
             if (formQ.length > 0) {
                 var rndIn = rInt(formQ.length)
                 var useQ = formQ[rndIn];
-                formQ.splice(rndIn, 1);    
+                formQ.splice(rndIn, 1);
                                 
                 var otp = "";
                 for (var i = 0; i < useQ.length; i++) {
